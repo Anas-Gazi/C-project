@@ -127,7 +127,7 @@ void sortStudentsByMarks(struct student students[], int count){
  struct student temp;
 
  for (int i=0; i<count-1; i++){
-    for (int j=i-1; j<count; j++){
+    for (int j=i+1; j<count; j++){
         if(students[i].marks < students[j].marks){
             temp = students[i];
             students[i]= students[j];
@@ -152,7 +152,7 @@ void deleteStudent(struct student students[], int *count) {
         char studentIdStr[20];
         sprintf(studentIdStr, "%d", students[i].id);  // Convert int ID to string
 
-        if (strcmp(/*students[i].id*/idstr, idstr) == 0) {
+        if (strcmp(/*students[i].id*/studentIdStr, idstr) == 0) {
             for (int j = i; j < *count - 1; j++) {
                 students[j] = students[j + 1];
             }
@@ -184,7 +184,7 @@ int main()
     printf("4. Search Student\n");
     printf("5. Sort Students by Marks\n");
     printf("6. Delete student ");
-    printf("Enter your choice(1-5)..........");
+    printf("\nSelect an option by entering a number (1–6): ");
     scanf("%d", &choice);
 
     if(choice == 1){
